@@ -91,8 +91,6 @@ function addFlavor(flavorArray, newFlavor ){
     return flavorArray
 }
 
-console.log('addFlavor("Rainbow Sherbert", originalFlavors): ', addFlavor(originalFlavors, "Rainbow Sherbert"));
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
 
@@ -104,10 +102,12 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(flavorArray){
+    flavorArray.pop();
+    return flavorArray
 }
 
+console.log('removeLastFlavor(flavorArray): ', removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -120,9 +120,10 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(flavorArray, index){
+    return flavorArray[index]
 }
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -139,9 +140,12 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(flavorArray, flavor){
+    const index = flavorArray.indexOf(flavor)
+    flavorArray.splice(index, 1)
+    return flavorArray
 }
+// flavorArray.splice(flavorArray.indexOf(flavor), 1) this does the same thing, really neat!
 
 
 
@@ -163,11 +167,18 @@ Use the filterByWord function below to do the following:
 
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
-
-function filterByWord(/*your code here*/){
-    /*your code here*/
+//includes()
+function filterByWord(flavorArray, flavor){
+    const newArray = [];
+    let item = "";
+    for (item of flavorArray){
+        if (item.includes(flavor)){
+            newArray.push(item);
+        }
+    } return newArray
 }
 
+console.log('filterByWord(flavorArray, flavor): ', filterByWord(originalFlavors, "Chocolate"));
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
